@@ -14,8 +14,25 @@ from langchain_openai import ChatOpenAI
 from langchain_groq import ChatGroq
 from langchain_community.tools.tavily_search import TavilySearchResults
 
-openai_llm = ChatOpenAI(model = "gpt-4o-mini")
-groq_llm = ChatGroq(model = "llama-3.3-70b-versatile")
+# Define model names
+MODEL_NAMES = {
+    "groq": [
+        "llama-3.3-70b-versatile",
+        "mistral-saba-24b",
+        "llama-3.1-8b-instant",
+        "groq/compound-mini"
+    ],
+    "openai": [
+        "gpt-4o",
+        "gpt-4o-mini",
+        "gpt-3.5-turbo"
+    ]
+}
+
+# Create instances
+
+openai_llm = [ChatOpenAI(model=name) for name in MODEL_NAMES["openai"]]
+groq_llm = [ChatGroq(model = name) for name in MODEL_NAMES['groq']]
 
 search_tool = TavilySearchResults(max_result=3)
 

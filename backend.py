@@ -18,7 +18,8 @@ class RequestState(BaseModel):
 
 # Step 2: Setup AI Agent for Frontend Request(Integration with FastAPI)
 
-ALLOWED_MODEL_NAME = ["llama3-70b-8192", "mixtral-8x7b-32768", "gpt-4o-mini", "llama-3.3-70b-versatile", "llama-4-scout-17b-16e-instruct"]
+ALLOWED_MODEL_NAME = ["llama3-70b-8192", "mistral-saba-24b", "gpt-4o-mini", "llama-3.3-70b-versatile", "groq/compound-mini", 
+                      "gpt-4o", "gpt-3.5-turbo", "llama-3.3-70b-versatile", "llama-3.1-8b-instant",]
 
 app = FastAPI(title="Langgraph AI Agent")
 
